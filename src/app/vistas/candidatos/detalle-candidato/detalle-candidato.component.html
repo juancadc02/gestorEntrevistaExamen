@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h2>{{textoTitulo}}</h2>
+  
+    <div class="alert alert-success my-3" role="alert" *ngIf="mensaje">
+      {{mensaje}}
+    </div>
+  
+    <form [formGroup]="candiForm" (ngSubmit)="enviarDatos()">
+    
+    <div class="mb-3">
+        <label for="nombreApellidosCandidato" class="form-label">Nombre Completo.</label>
+        <input [(ngModel)]="candidatos.nombreApellidosCandidato" type="text" class="form-control" id="nombreApellidosCandidato" formControlName="nombreApellidosCandidato" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="dniCandidato" class="form-label">Dni.</label>
+        <input [(ngModel)]="candidatos.dniCandidato" type="text" class="form-control" id="dniCandidato" formControlName="dniCandidato"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="direccionCandidato" class="form-label">Direccion.</label>
+        <input [(ngModel)]="candidatos.direccionCandidato" type="text" class="form-control" id="direccionCandidato" formControlName="direccionCandidato"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="telefonoCandidato" class="form-label">Telefono.</label>
+        <input [(ngModel)]="candidatos.telefonoCandidato" type="tel" class="form-control" id="telefonoCandidato" formControlName="telefonoCandidato"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="mailCandidato" class="form-label">Mail.</label>
+        <input [(ngModel)]="candidatos.mailCandidato" type="email" class="form-control" id="mailCandidato" formControlName="mailCandidato"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="fechaNacimientoCandidato" class="form-label">Fecha Nacimiento.</label>
+        <input [(ngModel)]="candidatos.fechaNacimientoCandidato" type="date" class="form-control" id="fechaNacimientoCandidato" formControlName="fechaNacimientoCandidato"
+          required>
+      </div>
+  
+   
+      <button type="submit" class="btn btn-primary" [disabled]="!this.candiForm.valid">{{botonEnviar}}</button>
+    </form>
+</div>

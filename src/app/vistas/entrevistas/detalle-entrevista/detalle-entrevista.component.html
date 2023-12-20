@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <h2>{{textoTitulo}}</h2>
+
+    <div class="alert alert-success my-3" role="alert" *ngIf="mensaje">
+        {{mensaje}}
+    </div>
+
+    <form [formGroup]="entreForm" (ngSubmit)="enviarDatos()">
+
+        <div class="mb-3">
+            <label for="fechaEntrevista" class="form-label">Fecha</label>
+            <input [(ngModel)]="entrevistas.fechaEntrevista" type="date" class="form-control" id="fechaEntrevista"
+                formControlName="fechaEntrevista" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="candidatoEntrevista" class="form-label">Candidato:</label>
+            <select class="form-select" name="candidatoEntrevista" formControlName="candidatoEntrevista"
+                [(ngModel)]="entrevistas.candidatoEntrevista">
+                <option value="" disabled selected>Seleccione un candidato.</option>
+                <option *ngFor="let candidatos of listaCandidatos" [value]="candidatos.nombreApellidosCandidato">
+                    {{candidatos.nombreApellidosCandidato}}</option>
+            </select>
+        </div>
+
+       
+        
+        <div class="mb-3">
+            <label for="puestoEntrevista" class="form-label">Puestos de Trabajo:</label>
+            <select class="form-select" 
+                    name="puestoEntrevista" formControlName="puestoEntrevista"
+                    [(ngModel)]="entrevistas.puestoEntrevista">
+                <option value="" disabled selected>Seleccione un puesto de trabajo.</option>
+                <option *ngFor="let puestoTrabajo of listaPuestosDeTrabajo" 
+                        [ngValue]="puestoTrabajo.nombrePuesto"
+                        [attr.disabled]="!puestoTrabajo.puestoDisponible ? true : null">
+                    {{ puestoTrabajo.nombrePuesto }}
+                </option>
+            </select>
+        </div>
+        
+       
+
+        <div class="">
+            <label for="realizada" class="form-label">¿Realizada?.</label>
+            <input [(ngModel)]="entrevistas.realizada" type="checkbox" name="realizada" id="realizada" formControlName="realizada">
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!this.entreForm.valid">{{botonTexto}}</button>
+    </form>
+</div>

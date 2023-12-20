@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID Entrevista</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Candidato</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Realizada</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let entrevista of listaEntrevista">
+
+            <td>{{entrevista.id}}</td>
+            <td>{{entrevista.fechaEntrevista}}</td>
+            <td>{{entrevista.candidatoEntrevista}}</td>
+            <td>{{entrevista.puestoEntrevista}}</td>
+            <td>{{entrevista.realizada ? 'Si' : 'No'}}</td>
+
+            <td>
+                <span>
+                    <i class="bi bi-pencil-square bg bg-warning" routerLink='/entrevistas/{{entrevista.id}}'></i>
+                    <i class="bi bi-trash bg bg-danger" (click)="confirmarEliminar(entrevista)"></i>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2>{{textoTitulo}}</h2>
+
+    <div class="alert alert-success my-3" role="alert" *ngIf="mensaje">
+        {{mensaje}}
+    </div>
+
+    <form [formGroup]="puestoForm" (ngSubmit)="enviarDatos()">
+
+        <div class="mb-3">
+            <label for="nombrePuesto" class="form-label">Nombre Puesto.</label>
+            <input [(ngModel)]="puestos.nombrePuesto" type="text" class="form-control" id="nombrePuesto"
+                formControlName="nombrePuesto" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="empresa" class="form-label">Empresa.</label>
+            <input [(ngModel)]="puestos.empresa" type="text" class="form-control" id="empresa" formControlName="empresa"
+                required>
+        </div>
+        
+        <div class="">
+            <label for="puestoDisponible" class="form-label">Disponible.</label>
+            <input [(ngModel)]="puestos.puestoDisponible" type="checkbox" name="puestoDisponible" id="puestoDisponible" formControlName="puestoDisponible">
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="!this.puestoForm.valid">{{botonTexto}}</button>
+    </form>
+</div>

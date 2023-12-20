@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID Puesto</th>
+            <th scope="col">Puesto de Trabajo</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Disponibilidad</th>
+            <th scope="col">Acciones</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let puestos of listaPuestos">
+
+            <td>{{puestos.id}}</td>
+            <td>{{puestos.nombrePuesto}}</td>
+            <td>{{puestos.empresa}}</td>
+            <td>{{ puestos.puestoDisponible ? 'Disponible' : 'No disponible' }}</td>
+            <td>
+                <span>
+                    <i class="bi bi-pencil-square bg bg-warning" routerLink='/puestos/{{puestos.id}}'></i>
+                    <i (click)="confirmarEliminar(puestos)" class="bi bi-trash bg bg-danger"></i>
+                </span>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

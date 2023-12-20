@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "proyecto-examen-bb431": {
+      "hosting": {
+        "examenGestorEntrevista": [
+          "proyecto-examen-bb431"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "proyecto-examen-bb431"
+  }
+}
